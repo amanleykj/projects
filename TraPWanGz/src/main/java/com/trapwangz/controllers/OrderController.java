@@ -25,14 +25,14 @@ public class OrderController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("/menu")
+	@GetMapping("/createOrder")
 	public String menu(Model model, HttpSession session) {
 		if(session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}
 		model.addAttribute("order", new Orders());
 		model.addAttribute("user", userService.getOneUser((Long)session.getAttribute("userId")));
-		return "menu.jsp";
+		return "createOrder.jsp";
 	}
 	
 	@GetMapping("/flavors")

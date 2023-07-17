@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TraPWanGz | Menu</title>
+<title>TraPWanGz | Create Order</title>
 </head>
 <body>
 
@@ -48,9 +48,9 @@
 	
 		<form:label path = "comboChoice">Choose your combo</form:label>
 			<form:select name = "comboChoice"  path = "comboChoice"  id ="comboChoice">
-				<form:option value="1"  path = "comboChoice" >6-Piece Combo</form:option>
-				<form:option value="2" path = "comboChoice" >10-Piece Combo</form:option>
-				<form:option value="3"  path = "comboChoice" >15-Piece Combo</form:option>
+				<form:option value="1"   >6-Piece Combo</form:option>
+				<form:option value="2"  >10-Piece Combo</form:option>
+				<form:option value="3"   >15-Piece Combo</form:option>
 			</form:select>
 			
 			<div>

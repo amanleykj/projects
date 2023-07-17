@@ -26,7 +26,7 @@
       <div class="menu">
 
         <li class="services">
-          <a href="/menu">Menu</a>
+          <a href="/createOrder">Create Order</a>
 
           <ul class="dropdown">
             <li><a href="/">Wings</a></li>

@@ -25,7 +25,7 @@
       <div class="menu">
 
         <li class="services">
-          <a href="/menu">Menu</a>
+          <a href="/createOrder">Create Order</a>
 
           <ul class="dropdown">
             <li><a href="/">Wings</a></li>
@@ -43,18 +43,22 @@
     </ul>
   </nav>
   
-  <div>
-  <c:if test = "${order.comboChoice == 1}">
-	<p><c:out value="You're getting that 6-piece combo."/></p>
-</c:if>
-<c:if test = "${order.comboChoice == 2}">
-	<p><c:out value="You're getting that 10-piece combo."/></p>
-</c:if>
-<c:if test = "${order.comboChoice == 3}">
-	<p><c:out value="You're getting that 15-piece combo."/></p>
-</c:if>
-    
-  </div>
+<p>The order.id is ${order.id} and the order.comboChoice is ${order.comboChoice }</p>
+  <c:choose>
+  
+	  <c:when test = "${order.comboChoice == 1}">
+		<p><c:out value="You're getting that 6-piece combo."/></p>
+	</c:when>
+	
+	<c:when test = "${order.comboChoice == 2}">
+		<p><c:out value="You're getting that 10-piece combo."/></p>
+	</c:when>
+	
+	<c:otherwise>
+		<p><c:out value="You're getting that 15-piece combo."/></p>
+	</c:otherwise>
+	
+ </c:choose>
   
   <div id = "menuMain">
 	<form:form action = "/chooseFlavor"  method = "post"  modelAttribute = "order">
