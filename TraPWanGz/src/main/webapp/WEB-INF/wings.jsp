@@ -12,25 +12,37 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TraPWanGz | Order</title>
+<title>TraPWanGz | Wings</title>
 </head>
 <body>
 
 	<nav class="navbar">
-    
-    <div class="logo"></div>
+    <c:choose>
+  
+							  <c:when test="${userId == user.id}">
+    <div class="logo">Welcome, ${user.firstName} | <a href = "/logout">Log out of your account</a></div>
+							  </c:when>
+							  
+							  <c:when test="${userId == null}">
+    <div class="logo">Dudes</div>
+							  </c:when>
+							  							
+							  <c:otherwise>
+							  </c:otherwise>
+							
+	</c:choose>
 
     <ul class="nav-links">
 
       <div class="menu">
 
         <li class="services">
-          <a href="/menu">Menu</a>
+          <a href="/createOrder">Create Order</a>
 
           <ul class="dropdown">
-            <li><a href="/">Wings</a></li>
-            <li><a href="/">Sides</a></li>
-            <li><a href="/">Sets</a></li>
+            <li><a href="/wings">Wings</a></li>
+            <li><a href="/sides">Sides</a></li>
+            <li><a href="/sets">Sets</a></li>
           </ul>
 
         </li>
@@ -43,20 +55,8 @@
     </ul>
   </nav>
 
-<h2>Continue to build your order</h2>
-<form:form action = "/order" mode = "post" modelAttribute = "order">
-
-	<div class = "mb-3">
-		<form:label class="form-label" path = "order" >Your order</form:label>
-		<form:errors path = "order" class = "danger-text"/>
-		<form:input class = "form-control" id = "order" path = "order" style = "background-color: #FE1216; color: #EDF3F8;" />
-	</div>
-		
-	<div>
-		<button class = "btn btn-success" type = "submit" value = "Order">Make Order</button>
-	</div>
-	
-</form:form>
+<h1>WINGS</h1>
+<h2>Product Information Coming soon</h2>
 
 <a href = "/">Back Home</a>
 

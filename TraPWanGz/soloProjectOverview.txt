@@ -50,3 +50,11 @@ needs:
 
 probably need a designer to work with me; confirmed that UI/UX designers (no code) can help with the design aspect of the site
 
+
+
+
+Confirmation screen after create screen (but NO object creation yet), with the ability to go back to previous object creation screen and edit order.
+
+
+Get some leads for how to pass along objects that have been created in an email format that can go to multiple receivers. Goal is for, upon completion of a user object, a template to be filled using data from the object. This email 
+

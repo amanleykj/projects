@@ -30,12 +30,14 @@ public class Orders {
 	
 	private String flavorChoice;
 	
-	public String sideChoice;
+	private String sideChoice;
 	
-	public String drinkChoice;
+	private String drinkChoice;
 	
 	@Size(max = 500, message = "Please limit your comments to 500 characters.")
 	private String notes;
+	
+	private boolean orderComplete;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
@@ -121,6 +123,14 @@ public class Orders {
 	
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+	
+	public boolean isOrderComplete() {
+		return orderComplete;
+	}
+
+	public void setOrderComplete(boolean orderComplete) {
+		this.orderComplete = orderComplete;
 	}
 
 	public Date getCreatedAt() {

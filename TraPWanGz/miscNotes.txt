@@ -13,3 +13,63 @@ Ultimately, it will show up on html as the intended name, but be represented thr
 
 
 Annouce on LinkedIn with certain fanfare and with the expectation that v2 and beyond will be coming; encourage designers in the Kent/Seattle area to get in touch right away to be involved in this project
+
+Make order object after initial screen, but the button on the confirmation screen will initiate a boolean change of a orderComplete element (false -> true)
+
+
+
+
+<p>The order.id is ${order.id} and the order.comboChoice is ${order.comboChoice }</p>
+  <c:choose>
+  
+	  <c:when test = "${order.comboChoice == 1}">
+		<p><c:out value="You're getting that 6-piece combo."/></p>
+	</c:when>
+	
+	<c:when test = "${order.comboChoice == 2}">
+		<p><c:out value="You're getting that 10-piece combo."/></p>
+	</c:when>
+	
+	<c:otherwise>
+		<p><c:out value="You're getting that 15-piece combo."/></p>
+	</c:otherwise>
+	
+ </c:choose>
+
+				<form:input type="hidden"  path="order"  value=" ${order.comboChoice}"/>
+
+
+<p>Hey there, ${user.firstName}</p>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Combo Choice</th>
+            <th>Flavor</th>
+            <th>Side</th>
+            <th>Date Ordered</th>
+        </tr>
+    </thead>
+    <tbody>
+   		<c:forEach var = "allBooks" items = "${allBooks}">
+	         <tr>
+	         	<td><c:out value = "${allBooks.id}" /></td>
+   		        <td><a href = "/books/${allBooks.id}"><c:out value = "${allBooks.title}" /></a></td>
+  	         	<td><c:out value = "${allBooks.author}" /></td>
+ 	         	<td>
+ 	         	<c:choose>
+ 	         	<c:when test ="${oneBook.user.id == user.id}">
+		  			YOU
+				</c:when>
+ 	         	<c:otherwise>
+ 	         		<c:out value = "${allBooks.user.userName}" />
+ 	         	</c:otherwise>
+         		</c:choose>
+         		</td>
+	         </tr>
+       	</c:forEach>
+    </tbody>
+</table>
+
+//		model.addAttribute("allOrders", userService.getOneUser((Long)session.getAttribute("orders")));

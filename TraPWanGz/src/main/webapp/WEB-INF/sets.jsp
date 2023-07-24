@@ -12,28 +12,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TraPWanGz | Login</title>
+<title>TraPWanGz | Sets</title>
 </head>
 <body>
+
 	<nav class="navbar">
     
-    <div class="logo"></div>
+    <div class="logo">Welcome, ${user.firstName} | <a href = "/logout">Log out of your account</a></div>
 
     <ul class="nav-links">
 
       <div class="menu">
 
         <li class="services">
-          <a href="/menu">Menu</a>
+          <a href="/createOrder">Create Order</a>
 
           <ul class="dropdown">
-            <li><a href="/">Wings</a></li>
-            <li><a href="/">Sides</a></li>
-            <li><a href="/">Sets</a></li>
+            <li><a href="/wings">Wings</a></li>
+            <li><a href="/sides">Sides</a></li>
+            <li><a href="/sets">Sets</a></li>
           </ul>
 
         </li>
 
+        <li><a href="/home">Home</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Make an Account</a></li>
@@ -41,26 +43,8 @@
     </ul>
   </nav>
 
-<form:form action = "/login" mode = "post" modelAttribute = "loginuser">
-<h2>Login</h2>
-
-	<div class = "mb-3">
-		<form:label class="form-label" path = "email" >Email</form:label>
-		<form:errors path = "email" class = "danger-text"/>
-		<form:input class = "form-control" id = "email" path = "email" />
-	</div>
-	
-	<div class = "mb-3">
-		<form:label class="form-label" path = "password" >Password</form:label>
-		<form:errors path = "password" class = "danger-text"/>
-		<form:input class = "form-control" id = "password" path = "password" type = "password"  />
-	</div>
-		
-	<div>
-		<button class = "btn btn-success" type = "submit" value = "Login">Login</button>
-	</div>
-	
-</form:form>
+<h1>SETS</h1>
+<h2>Product Information Coming soon</h2>
 
 <a href = "/">Back Home</a>
 

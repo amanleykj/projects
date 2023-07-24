@@ -48,25 +48,25 @@
 	<div class = "mb-3">
 		<form:label class="form-label" path = "firstName" >First Name</form:label>
 		<form:errors path = "firstName" class = "danger-text"/>
-		<form:input class = "form-control" id = "firstName" path = "firstName" style = "background-color: #FE1216; color: #EDF3F8;" />
+		<form:input class = "form-control" id = "firstName" path = "firstName" />
 	</div>
 	
 		<div class = "mb-3">
 		<form:label class="form-label" path = "lastName" >Last Name</form:label>
 		<form:errors path = "lastName" class = "danger-text"/>
-		<form:input class = "form-control" id = "lastName" path = "lastName" style = "background-color: #FE1216; color: #EDF3F8;" />
+		<form:input class = "form-control" id = "lastName" path = "lastName" />
 	</div>
 	
 	<div class = "mb-3">
 		<form:label class="form-label" path = "email" >Email (don't worry, we won't send you anything)</form:label>
 		<form:errors path = "email" class = "danger-text"/>
-		<form:input class = "form-control" id = "email" path = "email" style = "background-color: #FE1216" />
+		<form:input class = "form-control" id = "email" path = "email"  />
 	</div>
 	
 		<div class = "mb-3">
 		<form:label class="form-label" path = "contactMessage" >Question/Comment</form:label>
 		<form:errors path = "contactMessage" class = "danger-text"/>
-		<form:input class = "form-control" id = "contactMessage" path = "contactMessage" style = "background-color: #FE1216; color: #EDF3F8;" />
+		<form:input type = "textarea" class = "form-control" id = "contactMessage" path = "contactMessage" />
 	</div>
 		
 	<div>

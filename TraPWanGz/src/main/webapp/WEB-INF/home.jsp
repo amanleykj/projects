@@ -17,7 +17,7 @@
 <body>
 	<nav class="navbar">
     
-    <div class="logo"><a href = "/logout">Log out of your account</a></div>
+    <div class="logo">Welcome, ${user.firstName} | <a href = "/logout">Log out of your account</a></div>
 
     <ul class="nav-links">
 
@@ -27,9 +27,9 @@
           <a href="/createOrder">Create Order</a>
 
           <ul class="dropdown">
-            <li><a href="/menu">Wings</a></li>
-            <li><a href="/menu">Sides</a></li>
-            <li><a href="/menu">Sets</a></li>
+            <li><a href="/wings">Wings</a></li>
+            <li><a href="/sides">Sides</a></li>
+            <li><a href="/sets">Sets</a></li>
           </ul>
 
         </li>
@@ -42,10 +42,20 @@
     </ul>
   </nav>
 
-<p>Hey there, ${user.firstName}</p>
 
 <div>
 	<p>Check out your past orders</p>
+	
+	   		<c:forEach var = "allOrders" items = "${orders}">
+	<div class = "card">
+			<c:out value = "${allOrders.comboChoice}" />
+			<c:out value = "${allOrder.flavorChoice}" />
+	</div>
+	<br>
+       	</c:forEach>
+	
+	
+	
 	
 </div>
 

@@ -11,5 +11,7 @@ import com.trapwangz.models.Orders;
 public interface OrderRepo extends CrudRepository<Orders, Long> {
 	
 	List<Orders> findAll();
+
+	
 	
 }

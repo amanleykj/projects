@@ -16,11 +16,9 @@ public class OrderService {
 	private OrderRepo orderRepo;
 	
 	public Orders createOrder(Orders order, BindingResult result) {
-			
 		if(result.hasErrors()) {
 			return null;
 		}
-		
 		return orderRepo.save(order);
 	}
 	
@@ -38,4 +36,6 @@ public class OrderService {
 		}
 	}
 
+	
+	
 }

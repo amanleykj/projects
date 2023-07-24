@@ -18,7 +18,7 @@
 
 	<nav class="navbar">
     
-    <div class="logo"></div>
+    <div class="logo">Welcome, ${user.firstName} | <a href = "/logout">Log out of your account</a></div>
 
     <ul class="nav-links">
 
@@ -46,19 +46,69 @@
 <div id = "menuMain">
 	<form:form action = "/createOrder"  method = "post"  modelAttribute = "order">
 	
-		<form:label path = "comboChoice">Choose your combo</form:label>
+		<div class = "form-floating mb-3">
+			<form:label path = "comboChoice">Choose your combo</form:label>
 			<form:select name = "comboChoice"  path = "comboChoice"  id ="comboChoice">
 				<form:option value="1"   >6-Piece Combo</form:option>
 				<form:option value="2"  >10-Piece Combo</form:option>
 				<form:option value="3"   >15-Piece Combo</form:option>
 			</form:select>
+		</div>
+
+		<div class = "form-floating mb-3">			
+			<form:label path = "flavorChoice">Choose your sauce</form:label>
+			<form:select  path = "flavorChoice" name="flavorChoice" id="flavorChoice">
+				<form:option value="BMF" path = "flavorChoice">BMF</form:option>
+				<form:option value="DSG" path = "flavorChoice">DSGB</form:option>
+				<form:option value="EXO"  path = "flavorChoice" >Exotics</form:option>
+				<form:option value="TRY" path = "flavorChoice">Trap Yak</form:option>
+				<form:option value="GAR" path = "flavorChoice">Garlic Parm</form:option>
+				<form:option value="TRA"   path = "flavorChoice">Trapping Apple</form:option>
+				<form:option value="BAD" path = "flavorChoice">Bad & Boujee</form:option>
+				<form:option value="HEN" path = "flavorChoice">Henndawgs</form:option>
+				<form:option value="TRC"  path = "flavorChoice" >Trap Chili</form:option>
+				<form:option value="CIL" path = "flavorChoice">Cilantro Lime Jalepeno</form:option>
+				<form:option value="STR" path = "flavorChoice">Strawberry Heat</form:option>
+				<form:option value="TRH"  path = "flavorChoice" >Trap Habanero</form:option>
+				<form:option value="LEM" path = "flavorChoice">Lemon Pepper</form:option>
+				<form:option value="HON" path = "flavorChoice">Honey Garlic</form:option>
+				<form:option value="GOL"  path = "flavorChoice" >Gold Rush</form:option>
+				<form:option value="BUF" path = "flavorChoice">Buffalo</form:option>
+				<form:option value="RAN" path = "flavorChoice">Ranch</form:option>
+				<form:option value="24K"  path = "flavorChoice">24k</form:option>
+			</form:select>
+		</div>
+		
+		
+		<div class = "form-floating mb-3">	
+			<form:label path = "flavorChoice">Choose your side</form:label>
+			<form:select  path = "sideChoice" name="sideChoice" id="sideChoice">
+				<form:option value="FFS" path = "sideChoice">French Fries</form:option>
+				<form:option value="MCC" path = "sideChoice">Mac & Cheese</form:option>
+				<form:option value="BAB"  path = "sideChoice" >Baked Beans</form:option>
+			</form:select>
+		</div>			
+		
+		<div class = "form-floating mb-3">
+			<form:label path = "flavorChoice">Choose your drink (optional)</form:label>
+			<form:select  path = "drinkChoice" name="drinkChoice" id="drinkChoice">
+				<form:option value="NO" path = "drinkChoice">(none)</form:option>
+				<form:option value="SPR"  path = "drinkChoice" >Sprite</form:option>
+				<form:option value="COK" path = "drinkChoice">Coke</form:option>
+				<form:option value="TRJ"  path = "drinkChoice" >Trap Juice (grape lemonade)</form:option>
+			</form:select>
+		</div>
 			
-			<div>
-				<form:errors path="user" class="error"/>			
-				<form:input type="hidden"  path="user"  value="${user.id}"/>
-			</div>
+		<div class = "form-floating mb-3">
+		<form:label for = "floatingInput" class="form-label" path = "notes">Additional Requests</form:label>
+		<form:errors path = "notes" class = "danger-text"/>
+		<form:input type = "textarea" class = "form-control" id = "floatingInput" path = "notes" />
+		</div>
+		
+			<form:input type="hidden"  path="user"  value="${user.id}"/>
+
 			
-		<button type = "submit"  value  = "createOrder" >Next Screen</button>
+		<button class = "btn btn-primary" type = "submit"  value  = "createOrder" >Confirmation Screen</button>
 		
 	</form:form>
 </div>

@@ -12,20 +12,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TraPWanGz | Flavors</title>
+<title>Insert title here</title>
 </head>
 <body>
 
 	<nav class="navbar">
     
-    <div class="logo"></div>
+    <div class="logo">Welcome, ${user.firstName} | <a href = "/logout">Log out of your account</a></div>
 
     <ul class="nav-links">
 
       <div class="menu">
 
         <li class="services">
-          <a href="/createOrder">Create Order</a>
+          <a href="/menu">Menu</a>
 
           <ul class="dropdown">
             <li><a href="/">Wings</a></li>
@@ -42,29 +42,21 @@
       </div>
     </ul>
   </nav>
-  
-<p>The order.id is ${order.id} and the order.comboChoice is ${order.comboChoice }</p>
-  <c:choose>
-  
-	  <c:when test = "${order.comboChoice == 1}">
-		<p><c:out value="You're getting that 6-piece combo."/></p>
-	</c:when>
-	
-	<c:when test = "${order.comboChoice == 2}">
-		<p><c:out value="You're getting that 10-piece combo."/></p>
-	</c:when>
-	
-	<c:otherwise>
-		<p><c:out value="You're getting that 15-piece combo."/></p>
-	</c:otherwise>
-	
- </c:choose>
-  
-  <div id = "menuMain">
-	<form:form action = "/chooseFlavor"  method = "post"  modelAttribute = "order">
+
+
+
+<div id = "menuMain">
+<form:form action = "/order/${order.id}" mode = "post" modelAttribute = "order">
 	<input type = "hidden" name = "_method" value = "put">
 	
-		<form:label  path = "flavorChoice">Choose your flavor</form:label>
+			<form:label path = "comboChoice">Choose your combo</form:label>
+			<form:select name = "comboChoice"  path = "comboChoice"  id ="comboChoice">
+				<form:option value="1"   >6-Piece Combo</form:option>
+				<form:option value="2"  >10-Piece Combo</form:option>
+				<form:option value="3"   >15-Piece Combo</form:option>
+			</form:select>
+			
+			<form:label path = "flavorChoice">Choose your sauce</form:label>
 			<form:select  path = "flavorChoice" name="flavorChoice" id="flavorChoice">
 				<form:option value="BMF" path = "flavorChoice">BMF</form:option>
 				<form:option value="DSG" path = "flavorChoice">DSGB</form:option>
@@ -86,12 +78,29 @@
 				<form:option value="24K"  path = "flavorChoice">24k</form:option>
 			</form:select>
 			
-			<div>
-				<form:errors path="user" class="error"/>			
-				<form:input type="hidden"  path="user"  value=" ${user.id}"/>
-			</div>
+			<form:label path = "flavorChoice">Choose your side</form:label>
+			<form:select  path = "sideChoice" name="sideChoice" id="sideChoice">
+				<form:option value="FFS" path = "sideChoice">French Fries</form:option>
+				<form:option value="MCC" path = "sideChoice">Mac & Cheese</form:option>
+				<form:option value="BAB"  path = "sideChoice" >Baked Beans</form:option>
+			</form:select>
 			
-		<button type = "submit"  value  = "chooseFlavor" >Next Screen</button>
+			<form:label path = "flavorChoice">Choose your drink (optional)</form:label>
+			<form:select  path = "drinkChoice" name="drinkChoice" id="drinkChoice">
+				<form:option value="NO" path = "drinkChoice">(None)</form:option>
+				<form:option value="SPR"  path = "drinkChoice" >Sprite</form:option>
+				<form:option value="COK" path = "drinkChoice">Coke</form:option>
+				<form:option value="TRJ"  path = "drinkChoice" >Trap Juice (grade lemonade)</form:option>
+			</form:select>
+			
+		<form:label for = "notes" class="form-label" path = "notes">Additional Requests</form:label>
+		<form:errors path = "notes" class = "danger-text"/>
+		<form:input type = "textarea" class = "form-control" id = "notes" path = "notes" />
+				
+			<form:input type="hidden"  path="user"  value="${user.id}"/>
+
+			
+		<button type = "submit"  value  = "createOrder" >Confirmation Screen</button>
 		
 	</form:form>
 </div>
